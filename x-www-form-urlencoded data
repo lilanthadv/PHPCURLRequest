@@ -1,0 +1,25 @@
+
+<?php
+
+    // request data
+    $postdata  = "name=Jhone";
+    $postdata .= "&age=28";
+
+    // make api call here
+    $ch = curl_init("Our URL Heare");
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/x-www-form-urlencoded',
+        'Accept: application/json',
+        'Accept-Charset: UTF-8'
+    ));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$postdata);
+    $res = curl_exec($ch);
+    curl_close($ch);
+
+    // print response
+     print_r(res);
+
+?>
